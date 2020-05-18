@@ -17,7 +17,7 @@ public class PlayerBoard extends GenericBoard {
     }
 
     public ArrayList shuffleNumbers() {
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list;
         list = generateNumbers();
         Collections.shuffle(list);
         return list;

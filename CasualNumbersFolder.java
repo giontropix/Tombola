@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class CasualNumbersFolder {
     ArrayList casualNumbers = new ArrayList();
@@ -10,23 +9,16 @@ public class CasualNumbersFolder {
         fillNumbers();
     }
 
-    public void shuffleNumbers(ArrayList test) {
-        Collections.shuffle(test);
-    }
-
     public ArrayList fillNumbers() {
         for (int i = 1; i <90 ; i++) {
             this.casualNumbers.add(i);
         }
-        shuffleNumbers(this.casualNumbers);
+        Collections.shuffle(casualNumbers);
         return this.casualNumbers;
     }
 
     public int extractNumbers() {
-
-        int i = ThreadLocalRandom.current().nextInt(0, this.casualNumbers.size());
-        this.extractedNumber = (int)this.casualNumbers.get(i);
-        this.casualNumbers.remove(i);
+        this.extractedNumber = (int)casualNumbers.remove(casualNumbers.size() - 1);
         return extractedNumber;
     }
 

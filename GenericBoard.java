@@ -6,8 +6,10 @@ public class GenericBoard {
     ArrayList<Integer> list = new ArrayList();
     public Object[][] grid;
     String name;
-    public enum Mark {X, O};
-    private Mark mark;
+    boolean ambo = false;
+    boolean terna = false;
+    boolean quaterna = false;
+    boolean cinquina = false;
 
     public GenericBoard(String name, final int row, final int column) {
         this.name = name;
@@ -97,10 +99,6 @@ public class GenericBoard {
     }
 
     public void checkWin() {
-        boolean ambo = false;
-        boolean terna = false;
-        boolean quaterna = false;
-        boolean cinquina = false;
         if(ambo == false && checkAmbo()) {
             System.out.println("Il giocatore " + name + " ha fatto AMBO!!!\n");
             ambo = true;
@@ -110,7 +108,7 @@ public class GenericBoard {
             terna = true;
         }
         if(quaterna == false && checkQuaterna()) {
-            System.out.println("Il giocatore " + name + " ha fatto TERNA!!!\n");
+            System.out.println("Il giocatore " + name + " ha fatto QUANTERNA!!!\n");
             quaterna = true;
         }
         if(cinquina == false && checkCinquina()) {
